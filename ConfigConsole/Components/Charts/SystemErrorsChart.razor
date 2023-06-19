@@ -1,0 +1,23 @@
+﻿
+<RadzenChart>
+    <RadzenText Text="System Errors" TextStyle="TextStyle.H5" />
+    <RadzenBarSeries Data="chartData" CategoryProperty="Category" ValueProperty="Amount" Title="Errors">
+        <RadzenSeriesDataLabels Visible=true/>
+        <RadzenValueAxis Min="0"/>
+    </RadzenBarSeries>
+    <RadzenLegend Visible=false/>
+    <RadzenValueAxis Min="0" Max="20"/>
+    <RadzenGridLines Visible=true/>
+    <RadzenBarOptions Radius="10" />
+</RadzenChart>
+
+@code {
+
+    private record ChartItem(string Category, int Amount);
+    private List<ChartItem> chartData = default!;
+
+    protected override void OnInitialized()
+    {
+        chartData = new() { new ChartItem("Batch", 5), new ChartItem("Integration", 12) };
+    }
+}

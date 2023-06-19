@@ -1,0 +1,52 @@
+﻿@page "/general/batch/purges/edit/{purgeid}"
+@page "/general/batch/purges/new"
+
+<PageTitle>@pageTitle</PageTitle>
+
+<RadzenText TextStyle="TextStyle.DisplayH4">@pageTitle</RadzenText>
+
+<div style="max-width: 75rem">
+    <RadzenTemplateForm Data="@Purge">
+        <RadzenRow class="rz-mt-5">
+
+            <RadzenColumn Size="12" SizeMD="10" SizeLG="6">
+
+                <RadzenCard>
+                    <RadzenRow AlignItems="AlignItems.Center">
+                        <RadzenColumn Size="12">
+                            <RadzenFormField Text="PurgeId" Style="width: 100%">
+                                <RadzenTextBox @bind-Value="Purge.Id"></RadzenTextBox>
+                            </RadzenFormField>
+                        </RadzenColumn>
+                        <RadzenColumn Size="12">
+                            <RadzenFormField Text="Class Name" Style="width: 100%">
+                                <RadzenTextBox @bind-Value="Purge.ClassName"></RadzenTextBox>
+                            </RadzenFormField>
+                        </RadzenColumn>
+                        <RadzenColumn Size="12">
+                            <RadzenFormField Text="Retention Days" Style="width: 100%">
+                                <RadzenNumeric @bind-Value="Purge.RetentionDays"></RadzenNumeric>
+                            </RadzenFormField>
+                        </RadzenColumn>
+                        <RadzenColumn Size="12">
+                            <RadzenStack Orientation="Orientation.Horizontal" Gap="1rem" class="rz-mx-1 rz-my-3">
+                                <RadzenLabel Text="Bulk Enabled" />
+                                <RadzenCheckBox @bind-Value="Purge.BulkEnabled"></RadzenCheckBox>
+                            </RadzenStack>
+                        </RadzenColumn>
+                    </RadzenRow>
+                </RadzenCard>
+            </RadzenColumn>
+        </RadzenRow>
+    </RadzenTemplateForm>
+
+    <RadzenRow>
+        <RadzenColumn Size="12" SizeMD="10" SizeLG="6">
+            <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Right"
+                         Gap="0.5rem" class="rz-mt-4">
+                <RadzenButton Icon="delete" Text="Delete" Variant="Variant.Outlined" class="rz-ripple" Click="RemovePurge" Visible="deleteButtonIsVisible" />
+                <RadzenButton Icon="save" Text="Save" class="rz-ripple" Click="UpdatePurge" />
+            </RadzenStack>
+        </RadzenColumn>
+    </RadzenRow>
+</div>

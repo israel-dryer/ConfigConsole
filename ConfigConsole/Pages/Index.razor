@@ -1,0 +1,15 @@
+﻿@page "/"
+@inject IDataAccessService DataAccess
+@inject DialogService DialogService
+@using ConfigConsole.Components;
+@using ConfigConsole.Models;
+@using ConfigConsole.Services;
+
+<DashboardDemoView/>
+
+@code {
+    protected async override Task OnInitializedAsync()
+    {
+        await DataAccess.InitializeData();
+    }
+}

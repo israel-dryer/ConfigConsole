@@ -1,0 +1,39 @@
+﻿@page "/dashboard"
+@using System.Globalization
+@using ConfigConsole.Components
+@using ConfigConsole.Components.Charts
+
+<PageTitle>Home</PageTitle>
+
+<RadzenText TextStyle="TextStyle.DisplayH4" Text="System Dashboard" class="mb-4"/>
+
+<RadzenStack Orientation="Orientation.Horizontal" Wrap="FlexWrap.Wrap" JustifyContent="JustifyContent.Stretch">
+    
+    <RadzenStack Gap="5" Wrap="FlexWrap.Wrap" JustifyContent="JustifyContent.Stretch">
+        <DashboardCard Title="125" Subtitle="Concurrent Users" CardBackgroundColor="rz-background-color-base-500"
+                       TitleTextColor="rz-color-on-primary" SubtitleIconColor="rz-color-base-300" Icon="group" />
+
+        <DashboardCard Title="99.6%" Subtitle="Avg Uptime" CardBackgroundColor="rz-background-color-base-600"
+                       TitleTextColor="rz-color-on-primary" SubtitleIconColor="rz-color-base-300" Icon="watch_later" />
+
+        <DashboardCard Title="7" Subtitle="Integration / Batch Errors" CardBackgroundColor="rz-background-color-base-700"
+                       TitleTextColor="rz-color-on-primary" SubtitleIconColor="rz-color-base-300" Icon="warning" />
+
+        <DashboardCard Title="23.5%" Subtitle="Available Storage" CardBackgroundColor="rz-background-color-base-800"
+                       TitleTextColor="rz-color-on-primary" SubtitleIconColor="rz-color-base-300" Icon="storage" />
+    </RadzenStack>
+
+    <RadzenStack Gap="5" class="flex-grow-1" Wrap="FlexWrap.Wrap">
+        <RadzenCard class="flex-fill">
+            <UserCountChart/>
+        </RadzenCard>
+        <RadzenStack Orientation="Orientation.Horizontal" class="flex-fill" Wrap="FlexWrap.Wrap">
+            <RadzenCard class="flex-fill">
+                <SystemErrorsChart/>
+            </RadzenCard>
+            <RadzenCard class="flex-fill">
+                <StorageChart/>
+            </RadzenCard>
+        </RadzenStack>
+    </RadzenStack>
+</RadzenStack>

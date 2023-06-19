@@ -1,0 +1,16 @@
+﻿@page "/taskpriority/{selectedTask}"
+@inject DialogService DialogService
+
+
+<RadzenRow Style="width: 100%">
+    <RadzenColumn Size="12">
+        <RadzenNumeric @bind-Value="selectedValue" Style="width: 100%; max-width: 400px;" 
+            Min="0" TextAlign="TextAlign.Center" />
+    </RadzenColumn>
+    <RadzenColumn Size="12">
+        <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.End" Gap="0.5rem">
+            <RadzenButton Text="Cancel" Click="@(args => DialogService.Close(true))" ButtonStyle="ButtonStyle.Light" />
+            <RadzenButton Click="UpdateSelectedTask" Text="Ok" />
+        </RadzenStack>
+    </RadzenColumn>
+</RadzenRow>

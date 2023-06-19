@@ -1,0 +1,17 @@
+﻿@page "/assigntask/{selectedTask}"
+@inject DialogService DialogService
+
+<RadzenRow Style="width: 100%">
+    <RadzenColumn Size="12">
+        <RadzenListBox @bind-Value="selectedHuman" Data="humanIds" Style="width: 100%; max-width: 400px; height: 200px" />
+    </RadzenColumn>
+    <RadzenColumn Size="12">
+        <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.End" Gap="0.5rem">
+            <RadzenButton Text="Cancel" Click="@(args => DialogService.Close(true))" ButtonStyle="ButtonStyle.Light"/>
+            <RadzenButton Click="UpdateSelectedTask" Text="Ok" />
+        </RadzenStack>
+    </RadzenColumn>
+</RadzenRow>
+
+
+

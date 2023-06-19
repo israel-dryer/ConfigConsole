@@ -1,0 +1,33 @@
+﻿@page "/general/task/{taskId}/tasksteps/{taskStepId}/executions"
+@using ConfigConsole.Components
+@using ConfigConsole.Models;
+
+<PageTitle>Task Step Executions</PageTitle>
+
+<RadzenText TextStyle="TextStyle.DisplayH4">Task Step Executions</RadzenText>
+<RadzenText TextStyle="TextStyle.Subtitle1">TaskId (@TaskId) TaskStepId (@TaskStepId)</RadzenText>
+
+<RadzenDataGrid TItem="TaskStepExecution" AllowFiltering=true AllowSorting=true Data="tableData"
+                AllowColumnReorder=true AllowColumnPicking=true AllowPaging=true PageSize="15"
+                ShowPagingSummary=true Responsive=true>
+    <HeaderTemplate>
+
+        <!--small screen buttons-->
+        <RadzenButton Icon="arrow_back" class="rz-ripple rz-my-1 d-sm-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Primary" Click="NavigateToTaskStepView" />
+        <RadzenButton Icon="download" class="rz-ripple rz-my-1 d-sm-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary" />
+
+        <!--large screen buttons-->
+        <RadzenButton Text="Task Steps" Icon="arrow_back" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Primary" Size="ButtonSize.Small" Click="NavigateToTaskStepView" />
+        <ExportButton @ref="exportButton" FileName="taskstepexecutions.csv" Class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Click="ExportData" />
+    </HeaderTemplate>
+    <Columns>
+        <RadzenDataGridColumn TItem="TaskStepExecution" Property="Id" Title="Task Step Id" SortOrder="SortOrder.Ascending" />
+        <RadzenDataGridColumn TItem="TaskStepExecution" Property="Lot" Title="Lot" Visible=false />
+        <RadzenDataGridColumn TItem="TaskStepExecution" Property="SourceId" Title="Source Id" Visible=false />
+        <RadzenDataGridColumn TItem="TaskStepExecution" Property="AnchorPrompt" Title="Anchor Prompt" Visible=false />
+        <RadzenDataGridColumn TItem="TaskStepExecution" Property="DestinationId" Title="Destination Id" Visible=false />
+        <RadzenDataGridColumn TItem="TaskStepExecution" Property="Reported" Title="Reported" Visible=false />
+        <RadzenDataGridColumn TItem="TaskStepExecution" Property="ProcessData" Title="Process Data" />
+        <RadzenDataGridColumn TItem="TaskStepExecution" Property="ExecutionDate" Title="Execution Date" />
+    </Columns>
+</RadzenDataGrid>

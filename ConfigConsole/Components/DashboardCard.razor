@@ -1,0 +1,23 @@
+﻿<RadzenCard class="@CardBackgroundColor">
+    <div class="row p-0">
+        <div class="col col-6">
+            <RadzenText Text="@Title" TextStyle="TextStyle.DisplayH5" class="@TitleTextColor" />
+            <RadzenText Text="@Subtitle" TextStyle="TextStyle.Overline" class="@SubtitleIconColor" Style="font-size: 1.2rem" />
+        </div>
+        <div class="col col-6 text-center">
+            <RadzenIcon Icon="@Icon" Style="font-size: 8rem" class="@SubtitleIconColor" />
+        </div>
+    </div>
+</RadzenCard>
+
+@code {
+
+
+    [Parameter] public string Title { get; set; } = default!;
+    [Parameter] public string Subtitle { get; set; } = default!;
+    [Parameter] public string Icon { get; set; } = default!;
+    [Parameter] public string CardBackgroundColor { get; set; } = default!;
+    [Parameter] public string TitleTextColor { get; set; } = default!;
+    [Parameter] public string SubtitleIconColor { get; set; } = default!;
+
+}
