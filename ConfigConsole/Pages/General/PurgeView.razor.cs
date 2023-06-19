@@ -44,14 +44,14 @@ public partial class PurgeView : ComponentBase
     // action button commands
     private void NavigateToCreateRecordForm()
     {
-        Navigation.NavigateTo("/general/batch/purges/new");
+        Navigation.NavigateTo("general/batch/purges/new");
     }
 
     private void NavigateToEditRecordForm()
     {
         var record = selectedRecords.First();
         if (record == null) { return; }
-        Navigation.NavigateTo($"/general/batch/purges/edit/{record.Id}");
+        Navigation.NavigateTo($"general/batch/purges/edit/{record.Id}");
     }
 
     private async Task DeleteRecord()

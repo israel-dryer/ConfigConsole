@@ -50,7 +50,7 @@ public partial class TaskStepExecutions : ComponentBase
 
     private void NavigateToTaskStepView()
     {
-        var url = $"/general/task/{TaskId}/tasksteps";
+        var url = $"general/task/{TaskId}/tasksteps";
         Navigation.NavigateTo(url);
     }
 

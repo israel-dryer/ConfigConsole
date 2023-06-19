@@ -4,7 +4,7 @@ using ConfigConsole.Services;
 using Microsoft.AspNetCore.Components;
 using Radzen;
 using Radzen.Blazor;
-using System.Collections.ObjectModel;
+
 
 namespace ConfigConsole.Pages.General
 {
@@ -60,7 +60,7 @@ namespace ConfigConsole.Pages.General
 
         private void NavigateToCreateRecordForm()
         {
-            Navigation.NavigateTo("/general/batch/batches/new");
+            Navigation.NavigateTo("general/batch/batches/new");
         }
 
         private void NavigateToEditRecordForm()
@@ -68,7 +68,7 @@ namespace ConfigConsole.Pages.General
             var record = selectedRecords.First();
 
             if (record == null) { return; }
-            Navigation.NavigateTo($"/general/batch/batches/edit/{record.Id}");
+            Navigation.NavigateTo($"general/batch/batches/edit/{record.Id}");
         }
 
         private async Task ExportRecordsToCsv()

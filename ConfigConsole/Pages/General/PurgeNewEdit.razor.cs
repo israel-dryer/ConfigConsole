@@ -43,13 +43,13 @@ namespace ConfigConsole.Pages.General
         {
             if (!string.IsNullOrEmpty(Purge.Id))
                 await DataAccess.Upsert(Purge);
-            Navigation.NavigateTo("/general/batch/purges");
+            Navigation.NavigateTo("general/batch/purges");
         }
 
         private async Task RemovePurge()
         {
             await DataAccess.Remove<PurgeModel>(PurgeId);
-            Navigation.NavigateTo("/general/batch/purges");
+            Navigation.NavigateTo("general/batch/purges");
         }
     }
 }

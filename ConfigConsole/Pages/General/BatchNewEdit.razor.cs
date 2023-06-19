@@ -58,13 +58,13 @@ namespace ConfigConsole.Pages.General
         private async Task UpdateBatch()
         {
             await DataAccess.Upsert(Batch);
-            Navigation.NavigateTo("/general/batch/batches");
+            Navigation.NavigateTo("general/batch/batches");
         }
 
         private async Task RemoveBatch()
         {
             await DataAccess.Remove<BatchModel>(BatchId);
-            Navigation.NavigateTo("/general/batch/batches");
+            Navigation.NavigateTo("general/batch/batches");
 
         }
     }

@@ -45,12 +45,12 @@ namespace ConfigConsole.Pages.General
 
         private void NavigateToTaskView()
         {
-            Navigation.NavigateTo("/general/task");
+            Navigation.NavigateTo("general/task");
         }
 
         private void NavigateToTaskStepExecutionView(string? taskId, string? taskStepId)
         {
-            var url = $"/general/task/{taskId}/tasksteps/{taskStepId}/executions";
+            var url = $"general/task/{taskId}/tasksteps/{taskStepId}/executions";
             Navigation.NavigateTo(url);
         }
     }

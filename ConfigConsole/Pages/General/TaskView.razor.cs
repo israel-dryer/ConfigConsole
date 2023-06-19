@@ -97,7 +97,7 @@ namespace ConfigConsole.Pages.General
 
         private void ShowTaskSteps(string? taskId)
         {
-            Navigation.NavigateTo($"/general/task/{taskId}/taskSteps");
+            Navigation.NavigateTo($"general/task/{taskId}/taskSteps");
         }
     }
 
