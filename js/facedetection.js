@@ -24,15 +24,21 @@ async function markFacesOnImage(src, dst, faces) {
     canvas = document.getElementById(dst);
 
     // update the size based on the video dimensions
-    video.width = video.videoWidth;
-    video.height = video.videoHeight;
-    canvas.height = video.videoHeight;
-    canvas.width = video.videoWidth;
+    //video.width = video.videoWidth;
+    //video.height = video.videoHeight;
+    //canvas.height = video.videoHeight;
+    //canvas.width = video.videoWidth;
+
+    video.width = window.realVideoWidth;
+    video.height = window.realVideoHeight;
+    canvas.width = window.realVideoWidth;
+    canvas.height = window.realVideoHeight;
+
 
     context = canvas.getContext('2d');
     context.translate(video.videoWidth, 0);
     context.scale(-1, 1);
-    context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+    //context.drawImage(video, 0, 0, canvas.width, canvas.height);
     context.strokeStyle = 'red'
     context.lineWidth = 3;
 

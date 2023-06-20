@@ -21,11 +21,11 @@
       "url": "index.html"
     },
     {
-      "hash": "sha256-zf+76fClLc8KVaFDY5i9FdJnEqpvbyVaVgRfQlrfh5Q=",
+      "hash": "sha256-o96b3U9xgQwig5lkmMgOCiLsAtQAG4Qzaff2NXO7kxk=",
       "url": "js\/facedetection.js"
     },
     {
-      "hash": "sha256-\/HCmy5vpbKuDRf4oVEwsXciONQL2B4lM2bzt7yoaBDY=",
+      "hash": "sha256-OVX0nRdWvsE8XD9yokVCbjaPr67JTY3Xg1mj4+7o4cM=",
       "url": "js\/utils.js"
     },
     {
@@ -57,7 +57,7 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-OvMu5+vLxTyNbrH2hEvbZGMPE45EwI3DvUSI9VjCKmY=",
+      "hash": "sha256-FuwVPWtsiKhFcqaEeeQnRXcGwzvRiMrVrfeLEaWLTkM=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -65,7 +65,7 @@
       "url": "_framework\/Blazored.LocalStorage.dll"
     },
     {
-      "hash": "sha256-QmSJUe5qWV8icI5J76jqSgRvgLlDje\/+CDy8ww25PeY=",
+      "hash": "sha256-iJNFZf\/MXZMhjtT78ewGR66HlVnAdvN6MX8yVaSBU\/U=",
       "url": "_framework\/ConfigConsole.dll"
     },
     {
@@ -465,5 +465,5 @@
       "url": "_content\/Radzen.Blazor\/Radzen.Blazor.js"
     }
   ],
-  "version": "MwY3hOSe"
+  "version": "YqtIJBhR"
 };

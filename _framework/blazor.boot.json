@@ -8,7 +8,7 @@
   "resources": {
     "assembly": {
       "Blazored.LocalStorage.dll": "sha256-eXVgTw72kEn74FZgDQbLtvAmXbiZDSj5gzUnxVmwowQ=",
-      "ConfigConsole.dll": "sha256-QmSJUe5qWV8icI5J76jqSgRvgLlDje\/+CDy8ww25PeY=",
+      "ConfigConsole.dll": "sha256-iJNFZf\/MXZMhjtT78ewGR66HlVnAdvN6MX8yVaSBU\/U=",
       "CsvHelper.dll": "sha256-oh395MqwHOdv87ggl0L2cpWEDZZGFYe3CVUXnzSo8rY=",
       "Microsoft.AspNetCore.Components.dll": "sha256-lsQkS\/kMBNqmIjSs2EDJTjhVuAJmpm6c67z8C7R0GlU=",
       "Microsoft.AspNetCore.Components.Forms.dll": "sha256-+q29HxcldacPYTtTySBlIfRuwLav0mQ4Gd35dQjkhxk=",
