@@ -1,7 +1,12 @@
 ﻿@page "/test"
-@layout PlainLayout
 
+<RadzenCard class="fixed-bottom rz-background-color-base-900 rz-m-0 rz-p-2">
+    <RadzenStack Orientation="Orientation.Horizontal" Gap="1">
+        <RadzenButton Icon="person" Size="ButtonSize.Large" class="flex-fill"/>
+        <RadzenButton Icon="home" Size="ButtonSize.Large" class="flex-fill" />
+        <RadzenButton Icon="settings" Size="ButtonSize.Large" class="flex-fill" />
+        <RadzenButton Icon="info" Size="ButtonSize.Large" class="flex-fill" />
+        <RadzenButton Icon="search" Size="ButtonSize.Large" class="flex-fill" />
+    </RadzenStack>
+</RadzenCard>
 
-<div class="d-flex align-items-center justify-content-center" style="height: 100vh; width: 100vw">
-    <div class="bg-primary" style="width: 10rem; height: 10rem; margin-bottom: 15%;" />
-</div>

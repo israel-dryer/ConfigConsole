@@ -9,28 +9,28 @@
 
 <RadzenDataGrid @ref="taskDataGrid" @bind-Value="SelectedTasks"
                 TItem="TaskModel" AllowFiltering=true AllowSorting=true Data="tableData"
-                AllowColumnReorder=true AllowColumnPicking=true AllowPaging=true PageSize="15"
+                AllowColumnReorder=true AllowColumnPicking=true AllowPaging=true PageSize="10"
                 AllowRowSelectOnRowClick=true SelectionMode="DataGridSelectionMode.Multiple"
                 ShowPagingSummary=true Responsive=true>
     <HeaderTemplate>
 
         <!--small screen buttons-->
-        <RadzenButton Icon="restart_alt" class="rz-ripple rz-my-1 d-none d-sm-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary" />
-        <RadzenButton Icon="person_add" class="rz-ripple rz-my-1 d-xl-none d-inline-flex" ButtonStyle="ButtonStyle.Secondary" Click="UpdateTaskAssignment" Disabled="actionButtonDisabled" />
-        <RadzenButton Icon="low_priority" class="rz-ripple rz-my-1 d-xl-none d-inline-flex" ButtonStyle="ButtonStyle.Secondary" Click="UpdateTaskPriority" Disabled=" actionButtonDisabled" />
-        <RadzenButton Icon="delete" class="rz-ripple rz-my-1 d-none d-sm-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary" Click="DeleteTask" Disabled="actionButtonDisabled" />
+        <RadzenButton Icon="restart_alt" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary" Size="ButtonSize.Large"/>
+        <RadzenButton Icon="person_add" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary" Click="UpdateTaskAssignment" Size="ButtonSize.Large" Disabled="actionButtonDisabled" />
+        <RadzenButton Icon="low_priority" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary" Click="UpdateTaskPriority" Size="ButtonSize.Large" Disabled=" actionButtonDisabled" />
+        <RadzenButton Icon="delete" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary" Click="DeleteTask" Size="ButtonSize.Large" Disabled="actionButtonDisabled" />
 
         <!--large screen buttons-->
-        <ExportButton @ref="exportButton" FileName="tasks.csv" Class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Click="ExportTaskData" />
-        <RadzenButton Text="Reset" Icon="restart_alt" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" Size="ButtonSize.Small" ButtonStyle="ButtonStyle.Secondary" />
-        <RadzenButton Text="Assign" Icon="person_add" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" Size="ButtonSize.Small" ButtonStyle="ButtonStyle.Secondary" Click="UpdateTaskAssignment" Disabled="actionButtonDisabled" />
-        <RadzenButton Text="Change Priority" Icon="low_priority" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" Size="ButtonSize.Small" ButtonStyle="ButtonStyle.Secondary" Click="UpdateTaskPriority" Disabled="actionButtonDisabled" />
-        <RadzenButton Text="Remove" Icon="delete" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" Size="ButtonSize.Small" ButtonStyle="ButtonStyle.Secondary" Click="DeleteTask" Disabled="actionButtonDisabled" />
+        <ExportButton @ref="exportButton" FileName="tasks.csv" Class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Click="ExportTaskData" ButtonText="Export" ButtonSize="ButtonSize.Medium"/>
+        <RadzenButton Text="Reset" Icon="restart_alt" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" />
+        <RadzenButton Text="Assign" Icon="person_add" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Click="UpdateTaskAssignment" Disabled="actionButtonDisabled" />
+        <RadzenButton Text="Change Priority" Icon="low_priority" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Click="UpdateTaskPriority" Disabled="actionButtonDisabled" />
+        <RadzenButton Text="Remove" Icon="delete" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Click="DeleteTask" Disabled="actionButtonDisabled" />
     </HeaderTemplate>
     <Columns>
         <RadzenDataGridColumn TItem="TaskModel" Sortable=false Filterable=false Width="50px" TextAlign="TextAlign.Center" Reorderable=false>
             <Template Context="task">
-                <RadzenButton Icon="format_list_numbered" Click="@(_ => ShowTaskSteps(task.Id))" Variant="Variant.Text" Size="ButtonSize.ExtraSmall"/>
+                <RadzenButton Icon="read_more" Click="@(_ => ShowTaskSteps(task.Id))" ButtonStyle="ButtonStyle.Light"/>
             </Template>
         </RadzenDataGridColumn>
         <RadzenDataGridColumn TItem="TaskModel" Property="Id" Title="Task Id" SortOrder="SortOrder.Ascending" />
@@ -59,3 +59,15 @@
     </Columns>
 
 </RadzenDataGrid>
+
+
+<!--mobile screen buttons-->
+<RadzenCard class="d-md-none rz-background-color-base-900 m-0 p-2" Style="position: sticky; bottom: 0; top: 0;">
+    <RadzenStack Orientation="Orientation.Horizontal" Gap="1">
+        <ExportButton @ref="exportButton" Class="flex-fill d-md-none" ButtonStyle="ButtonStyle.Secondary" FileName="batches.csv" ButtonSize="ButtonSize.Large" Click="ExportTaskData"/>
+        <RadzenButton Icon="restart_alt" class="flex-fill d-md-none" ButtonStyle="ButtonStyle.Secondary" Size="ButtonSize.Large"/>
+        <RadzenButton Icon="person_add" class="flex-fill d-md-none" ButtonStyle="ButtonStyle.Secondary" Disabled="actionButtonDisabled" Size="ButtonSize.Large" Click="UpdateTaskAssignment"/>
+        <RadzenButton Icon="low_priority" class="flex-fill d-md-none" ButtonStyle="ButtonStyle.Secondary" Disabled="actionButtonDisabled" Size="ButtonSize.Large" Click="UpdateTaskPriority"/>
+        <RadzenButton Icon="delete" class="flex-fill d-md-none" Size="ButtonSize.Large" Disabled="actionButtonDisabled" ButtonStyle="ButtonStyle.Primary" Click="DeleteTask"/>
+    </RadzenStack>
+</RadzenCard>

@@ -8,19 +8,21 @@
 
 <RadzenDataGrid @ref="dataGrid" @bind-Value="SelectedRecords" TItem="BatchModel" Data="tableData" AllowFiltering=true AllowSorting=true
                 AllowColumnResize=true AllowColumnReorder=true Responsive=true AllowRowSelectOnRowClick=true
-                PageSize="10" AllowPaging=true AllowColumnPicking=true ShowPagingSummary=true SelectionMode="DataGridSelectionMode.Single">
+                PageSize="15" AllowPaging=true AllowColumnPicking=true ShowPagingSummary=true SelectionMode="DataGridSelectionMode.Single">
     <HeaderTemplate>
+
+        <!--small screen buttons-->
         <RadzenButton Icon="add" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" Click="NavigateToCreateRecordForm" ButtonStyle="ButtonStyle.Secondary" />
-        <RadzenButton Icon="edit" class="rz-ripple rz-my-1 d-sm-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary" Disabled="actionButtonDisabled" Click="NavigateToEditRecordForm" />
+        <RadzenButton Icon="edit" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary" Disabled="actionButtonDisabled" Click="NavigateToEditRecordForm" />
         <RadzenButton Icon="delete" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary" Disabled="actionButtonDisabled" Click="DeleteRecord" />
-        <RadzenButton Icon="exit_to_app" class="rz-ripple rz-my-1 d-sm-inline-flex d-xl-none" Click="ExecuteBatch" ButtonStyle="ButtonStyle.Dark" Disabled="actionButtonDisabled"/>
+        <RadzenButton Icon="exit_to_app" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" Click="ExecuteBatch" ButtonStyle="ButtonStyle.Dark" Disabled="actionButtonDisabled"/>
 
         <!--large screen buttons-->
-        <ExportButton @ref="exportButton" Class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Click="ExportRecordsToCsv" FileName="batches.csv" />
-        <RadzenButton Icon="add" Text="New" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" Click="NavigateToCreateRecordForm" ButtonStyle="ButtonStyle.Secondary" Size="ButtonSize.Small" />
-        <RadzenButton Icon="edit" Text="Edit" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Disabled="actionButtonDisabled" Click="NavigateToEditRecordForm" Size="ButtonSize.Small" />
-        <RadzenButton Icon="delete" Text="Delete" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Disabled="actionButtonDisabled" Click="DeleteRecord" Size="ButtonSize.Small" />
-        <RadzenButton Text="Execute" Icon="exit_to_app" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" Click="ExecuteBatch" Size="ButtonSize.Small" Disabled="actionButtonDisabled" ButtonStyle="ButtonStyle.Dark" />
+        <ExportButton @ref="exportButton" ButtonText="Export" Class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Click="ExportRecordsToCsv" FileName="batches.csv" ButtonSize="ButtonSize.Medium" />
+        <RadzenButton Icon="add" Text="New" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" Click="NavigateToCreateRecordForm" ButtonStyle="ButtonStyle.Secondary"/>
+        <RadzenButton Icon="edit" Text="Edit" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Disabled="actionButtonDisabled" Click="NavigateToEditRecordForm"/>
+        <RadzenButton Icon="delete" Text="Delete" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Disabled="actionButtonDisabled" Click="DeleteRecord"/>
+        <RadzenButton Text="Execute" Icon="exit_to_app" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" Click="ExecuteBatch"Disabled="actionButtonDisabled" ButtonStyle="ButtonStyle.Dark" />
     </HeaderTemplate>
     <Columns>
         <RadzenDataGridColumn TItem="BatchModel" Property="Id" Title="Batch" SortOrder="SortOrder.Ascending" />
@@ -39,3 +41,14 @@
         <RadzenDataGridColumn TItem="BatchModel" Property="LogType" Title="Log Type" />
     </Columns>
 </RadzenDataGrid>
+
+<!--mobile screen buttons-->
+<RadzenCard class="d-md-none rz-background-color-base-900 m-0 p-2" Style="position: sticky; bottom: 0; top: 0;">
+    <RadzenStack Orientation="Orientation.Horizontal" Gap="1">
+        <ExportButton @ref="exportButton" Class="flex-fill d-md-none" ButtonStyle="ButtonStyle.Secondary" Click="ExportRecordsToCsv" FileName="batches.csv" ButtonSize="ButtonSize.Large"/>
+        <RadzenButton Icon="add" class="flex-fill d-md-none" Click="NavigateToCreateRecordForm" ButtonStyle="ButtonStyle.Secondary" Size="ButtonSize.Large" />
+        <RadzenButton Icon="edit" class="flex-fill d-md-none" ButtonStyle="ButtonStyle.Secondary" Disabled="actionButtonDisabled" Click="NavigateToEditRecordForm" Size="ButtonSize.Large" />
+        <RadzenButton Icon="delete" class="flex-fill d-md-none" ButtonStyle="ButtonStyle.Secondary" Disabled="actionButtonDisabled" Click="DeleteRecord" Size="ButtonSize.Large" />
+        <RadzenButton Icon="exit_to_app" class="flex-fill d-md-none" Click="ExecuteBatch" Size="ButtonSize.Large" Disabled="actionButtonDisabled" ButtonStyle="ButtonStyle.Primary" />
+    </RadzenStack>
+</RadzenCard>

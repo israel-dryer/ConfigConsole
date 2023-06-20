@@ -15,6 +15,8 @@ public partial class ExportButton : ComponentBase
     [Parameter] public string Class { get; set; } = string.Empty;
     [Parameter] public ButtonStyle ButtonStyle { get; set; } = ButtonStyle.Primary;
     [Parameter] public EventCallback Click { get; set; }
+    [Parameter] public ButtonSize ButtonSize { get; set; } = ButtonSize.Small;
+    [Parameter] public string ButtonText { get; set; } = string.Empty;
 
     private static async Task<byte[]> DataToBytes<T>(IEnumerable<T> data)
     {

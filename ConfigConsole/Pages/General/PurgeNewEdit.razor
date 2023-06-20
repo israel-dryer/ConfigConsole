@@ -44,9 +44,17 @@
         <RadzenColumn Size="12" SizeMD="10" SizeLG="6">
             <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Right"
                          Gap="0.5rem" class="rz-mt-4">
-                <RadzenButton Icon="delete" Text="Delete" Variant="Variant.Outlined" class="rz-ripple" Click="RemovePurge" Visible="deleteButtonIsVisible" />
-                <RadzenButton Icon="save" Text="Save" class="rz-ripple" Click="UpdatePurge" />
+                <RadzenButton Icon="delete" Text="Delete" Variant="Variant.Outlined" class="rz-ripple d-none d-md-inline-flex" Click="RemovePurge" Visible="deleteButtonIsVisible" />
+                <RadzenButton Icon="save" Text="Save" class="rz-ripple d-none d-md-inline-flex" Click="UpdatePurge" />
             </RadzenStack>
         </RadzenColumn>
     </RadzenRow>
 </div>
+
+<!--mobile screen buttons-->
+<RadzenCard class="d-md-none rz-background-color-base-900 m-0 p-2 fixed-bottom">
+    <RadzenStack Orientation="Orientation.Horizontal" Gap="1" JustifyContent="JustifyContent.Right">
+        <RadzenButton Icon="delete" Text="Delete" class="flex-end d-md-none" Click="RemovePurge" Variant="Variant.Outlined" Visible="deleteButtonIsVisible" Size="ButtonSize.Large"/>
+        <RadzenButton Icon="save" Text="Save" class="flex-end d-md-none" Click="UpdatePurge" Size="ButtonSize.Large" />
+    </RadzenStack>
+</RadzenCard>

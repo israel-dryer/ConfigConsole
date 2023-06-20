@@ -13,17 +13,17 @@
     <HeaderTemplate>
 
         <!--small screen buttons-->
-        <RadzenButton Icon="arrow_back" class="rz-ripple rz-my-1 d-sm-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Primary" Click="NavigateToTaskView"/>
-        <RadzenButton Icon="download" class="rz-ripple rz-my-1 d-sm-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary"/>
+        <RadzenButton Icon="arrow_back" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Primary" Click="NavigateToTaskView"/>
+        <RadzenButton Icon="download" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary"/>
 
         <!--large screen buttons-->
-        <RadzenButton Text="Tasks" Icon="arrow_back" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Primary" Size="ButtonSize.Small" Click="NavigateToTaskView"/>
-        <ExportButton @ref="exportButton" FileName="tasksteps.csv" Class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Click="ExportData" />
+        <RadzenButton Text="Tasks" Icon="arrow_back" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Primary"Click="NavigateToTaskView"/>
+        <ExportButton @ref="exportButton" ButtonText="Export" FileName="tasksteps.csv" Class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Click="ExportData" ButtonSize="ButtonSize.Medium"/>
     </HeaderTemplate>
     <Columns>
         <RadzenDataGridColumn TItem="TaskStep" Sortable=false Filterable=false Width="50px" TextAlign="TextAlign.Center" Reorderable=false>
             <Template Context="taskstep">
-                <RadzenButton Icon="format_list_numbered" Variant="Variant.Text" Click="@(_ => NavigateToTaskStepExecutionView(TaskId, taskstep.Id))" Size="ButtonSize.ExtraSmall"/>
+                <RadzenButton Icon="format_list_numbered" Click="@(_ => NavigateToTaskStepExecutionView(TaskId, taskstep.Id))" ButtonStyle="ButtonStyle.Light"/>
             </Template>
         </RadzenDataGridColumn>
         <RadzenDataGridColumn TItem="TaskStep" Property="Id" Title="Task Step Id" SortOrder="SortOrder.Ascending" />
@@ -44,3 +44,11 @@
         <RadzenDataGridColumn TItem="TaskStep" Property="UnitOfMeasure" Title="Unit Of Measure" Visible=false />
     </Columns>
 </RadzenDataGrid>
+
+<!--mobile screen buttons-->
+<RadzenCard class="d-md-none rz-background-color-base-900 m-0 p-2" Style="position: sticky; bottom: 0; top: 0;">
+    <RadzenStack Orientation="Orientation.Horizontal" Gap="1" JustifyContent="JustifyContent.Right">
+        <RadzenButton Text="Tasks" Icon="arrow_back" class="flex-end d-md-none" ButtonStyle="ButtonStyle.Primary" Click="NavigateToTaskView" Size="ButtonSize.Large"/>
+        <ExportButton @ref="exportButton" ButtonText="Export" FileName="tasksteps.csv" Class="flex-end d-md-none" ButtonStyle="ButtonStyle.Secondary" Click="ExportData" ButtonSize="ButtonSize.Large" />
+    </RadzenStack>
+</RadzenCard>
