@@ -3,11 +3,15 @@
 @inject NavigationManager Navigation
 
 <RadzenText id="facesDetected" TextStyle="TextStyle.H5" Text="Faces Detected: 1" class="mb-3"/>
-<div class="d-flex flex-grow-1 m-0 overflow-hidden" style="height: 75vh; max-width: 1000px;">
+@*<div class="d-flex flex-grow-1 m-0 overflow-hidden" style="height: 75vh; max-width: 1000px;">
     <video id="video" controls="controls" style="object-fit: cover; object-position: center;" autoplay loop playsinline hidden></video>
     <canvas id="canvas" controls="controls" style="object-fit: cover; object-position: center;"></canvas>
-</div>
+</div>*@
 
+<div style="max-width: 1000px;" class="d-flex h-75 flex-grow-1 overflow-hidden position-relative">
+    <video id="video" controls="controls" autoplay style="z-index: 1; object-position: center;" class="position-absolute object-fit-cover"></video>
+    <canvas id="canvas" controls="controls" style="z-index: 2; object-position: center;" class="position-absolute object-fit-cover"></canvas>
+</div>
 
 @code {
     private int? intervalId;

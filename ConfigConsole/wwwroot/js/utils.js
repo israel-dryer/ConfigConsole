@@ -12,11 +12,16 @@
 
 async function startVideo(src) {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
+        navigator.mediaDevices.getUserMedia({ video: { facingModel: 'environment' } }).then((stream) => {
             let video = document.getElementById(src);
             video.srcObject = stream;
-            video.onloadedmetadata = (_) => video.onplay;
-            video.style.transform = "scaleX(1)";
+            //video.onloadedmetadata = (_) => video.onplay;
+            video.onloadeddata = (_) => video.onplay;
+            video.style.transform = "scaleX(-1)";
+            video.onplaying = function (e) {
+                window.realVideoWidth = video.videoWidth;
+                window.realVideoHeight = video.videoHeight;
+            }
         });
     }
 }

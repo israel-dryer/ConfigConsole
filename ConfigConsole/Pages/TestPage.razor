@@ -1,12 +1,38 @@
 ﻿@page "/test"
+@inject IJSRuntime JS
+@inject NavigationManager Navigation
 
-<RadzenCard class="fixed-bottom rz-background-color-base-900 rz-m-0 rz-p-2">
-    <RadzenStack Orientation="Orientation.Horizontal" Gap="1">
-        <RadzenButton Icon="person" Size="ButtonSize.Large" class="flex-fill"/>
-        <RadzenButton Icon="home" Size="ButtonSize.Large" class="flex-fill" />
-        <RadzenButton Icon="settings" Size="ButtonSize.Large" class="flex-fill" />
-        <RadzenButton Icon="info" Size="ButtonSize.Large" class="flex-fill" />
-        <RadzenButton Icon="search" Size="ButtonSize.Large" class="flex-fill" />
-    </RadzenStack>
-</RadzenCard>
+@*<div class="position-relative d-flex flex-grow-1 m-0 overflow-hidden" style="height: 75vh; max-width: 1000px;">
+    <video class="position-absolute overflow-hidden" id="video" controls="controls" autoplay></video>
+    <canvas id="canvas" controls="controls" class="overflow-hidden position-absolute"></canvas>
+</div>
+*@
+<div class="d-flex flex-grow-1 m-0 overflow-hidden" style="height: 75vh; max-width: 1000px;">
+    <video class="w-100 h-100" video" controls="controls" style="object-fit: cover; object-position: center;" autoplay loop playsinline></video>
+    <canvas id="canvas" controls="controls" style="object-fit: cover; object-position: center;"></canvas>
+</div>
 
+@code {
+    private int? intervalId;
+
+    protected override void OnInitialized()
+    {
+
+        Navigation.LocationChanged += StopDetection;
+    }
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("startVideo", "video");
+            intervalId = await JS.InvokeAsync<int>("startDetection", "video", "canvas", "facesDetected");
+        }
+    }
+
+    private void StopDetection(object? sender, LocationChangedEventArgs e)
+    {
+        JS.InvokeVoidAsync("stopDetection", intervalId);
+        intervalId = null;
+    }
+}
