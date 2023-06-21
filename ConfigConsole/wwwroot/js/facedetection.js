@@ -36,9 +36,13 @@ async function markFacesOnImage(src, dst, faces) {
 
 
     context = canvas.getContext('2d');
-    context.translate(video.videoWidth, 0);
-    context.scale(-1, 1);
+
+    // -- updates needed for front-facing camera
+    // -----------------------------------------
+    //context.translate(video.videoWidth, 0);
+    //context.scale(-1, 1);
     //context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
     context.strokeStyle = 'red'
     context.lineWidth = 3;
 
