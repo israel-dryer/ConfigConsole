@@ -12,10 +12,10 @@
     <HeaderTemplate>
 
         <!--small screen buttons-->
-        <RadzenButton Icon="add" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" Click="NavigateToCreateRecordForm" ButtonStyle="ButtonStyle.Secondary" />
-        <RadzenButton Icon="edit" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary" Disabled="actionButtonDisabled" Click="NavigateToEditRecordForm" />
-        <RadzenButton Icon="delete" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary" Disabled="actionButtonDisabled" Click="DeleteRecord" />
-        <RadzenButton Icon="exit_to_app" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" Click="ExecuteBatch" ButtonStyle="ButtonStyle.Dark" Disabled="actionButtonDisabled"/>
+        <RadzenButton Icon="add" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" Click="NavigateToCreateRecordForm" ButtonStyle="ButtonStyle.Secondary" Size="ButtonSize.Large"/>
+        <RadzenButton Icon="edit" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary" Disabled="actionButtonDisabled" Click="NavigateToEditRecordForm" Size="ButtonSize.Large" />
+        <RadzenButton Icon="delete" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary" Disabled="actionButtonDisabled" Click="DeleteRecord" Size="ButtonSize.Large" />
+        <RadzenButton Icon="exit_to_app" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" Click="ExecuteBatch" ButtonStyle="ButtonStyle.Dark" Disabled="actionButtonDisabled" Size="ButtonSize.Large" />
 
         <!--large screen buttons-->
         <ExportButton @ref="exportButton" ButtonText="Export" Class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Click="ExportRecordsToCsv" FileName="batches.csv" ButtonSize="ButtonSize.Medium" />
