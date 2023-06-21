@@ -12,7 +12,7 @@
 
 async function startVideo(src) {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ video: { facingModel: 'environment' } }).then((stream) => {
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } }).then((stream) => {
             let video = document.getElementById(src);
             video.srcObject = stream;
             //video.onloadedmetadata = (_) => video.onplay;
@@ -22,6 +22,6 @@ async function startVideo(src) {
                 window.realVideoWidth = video.videoWidth;
                 window.realVideoHeight = video.videoHeight;
             }
-        });
+        }).catch(console.error);
     }
 }
