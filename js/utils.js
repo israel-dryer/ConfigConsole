@@ -17,7 +17,7 @@ async function startVideo(src) {
             video.srcObject = stream;
             //video.onloadedmetadata = (_) => video.onplay;
             video.onloadeddata = (_) => video.onplay;
-            video.style.transform = "scaleX(-1)";
+            //video.style.transform = "scaleX(-1)"; // only needed for front-facing
             video.onplaying = function (e) {
                 window.realVideoWidth = video.videoWidth;
                 window.realVideoHeight = video.videoHeight;
