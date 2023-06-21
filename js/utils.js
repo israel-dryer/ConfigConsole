@@ -12,7 +12,13 @@
 
 async function startVideo(src) {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } }).then((stream) => {
+        navigator.mediaDevices.getUserMedia(
+            {
+                video:
+                {
+                    facingMode: { ideal: 'environment' }
+                }
+            }).then((stream) => {
             let video = document.getElementById(src);
             video.srcObject = stream;
             //video.onloadedmetadata = (_) => video.onplay;

@@ -25,7 +25,7 @@
       "url": "js\/facedetection.js"
     },
     {
-      "hash": "sha256-lpLF6UDfA9Kq4UmuZMFqKopPhnLMIMyL6JrD76KXUag=",
+      "hash": "sha256-hhIoBa5ycqCPS6yUwruKGIUBouuBbtYSDz0VJZgWkTE=",
       "url": "js\/utils.js"
     },
     {
@@ -465,5 +465,5 @@
       "url": "_content\/Radzen.Blazor\/Radzen.Blazor.js"
     }
   ],
-  "version": "bVNQTshg"
+  "version": "WHKmAsu0"
 };
