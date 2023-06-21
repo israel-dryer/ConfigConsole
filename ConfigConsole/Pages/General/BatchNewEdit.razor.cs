@@ -57,7 +57,10 @@ namespace ConfigConsole.Pages.General
 
         private async Task UpdateBatch()
         {
-            await DataAccess.Upsert(Batch);
+            if (!string.IsNullOrEmpty(Batch.Id)) 
+            {
+                await DataAccess.Upsert(Batch);
+            }
             Navigation.NavigateTo("general/batch/batches");
         }
 

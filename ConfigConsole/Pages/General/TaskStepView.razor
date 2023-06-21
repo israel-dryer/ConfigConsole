@@ -21,9 +21,9 @@
         <ExportButton @ref="exportButton" ButtonText="Export" FileName="tasksteps.csv" Class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Click="ExportData" ButtonSize="ButtonSize.Medium"/>
     </HeaderTemplate>
     <Columns>
-        <RadzenDataGridColumn TItem="TaskStep" Sortable=false Filterable=false Width="50px" TextAlign="TextAlign.Center" Reorderable=false>
+        <RadzenDataGridColumn TItem="TaskStep" Sortable=false Filterable=false Width="80px" TextAlign="TextAlign.Center" Reorderable=false>
             <Template Context="taskstep">
-                <RadzenButton Icon="format_list_numbered" Click="@(_ => NavigateToTaskStepExecutionView(TaskId, taskstep.Id))" ButtonStyle="ButtonStyle.Light"/>
+                <RadzenButton Icon="read_more" Click="@(_ => NavigateToTaskStepExecutionView(TaskId, taskstep.Id))" ButtonStyle="ButtonStyle.Light"/>
             </Template>
         </RadzenDataGridColumn>
         <RadzenDataGridColumn TItem="TaskStep" Property="Id" Title="Task Step Id" SortOrder="SortOrder.Ascending" />

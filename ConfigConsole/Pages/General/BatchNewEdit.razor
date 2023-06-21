@@ -5,6 +5,16 @@
 
 <RadzenText TextStyle="TextStyle.DisplayH4">@pageTitle</RadzenText>
 
+<RadzenRow>
+    <RadzenColumn Size="12" SizeMD="10" SizeLG="6">
+        <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Right"
+                     Gap="0.5rem" class="rz-mt-4">
+            <RadzenButton Icon="delete" Text="Delete" Variant="Variant.Outlined" class="rz-ripple d-none d-md-inline-flex" Click="RemoveBatch" Visible="deleteButtonVisible" />
+            <RadzenButton Icon="save" Text="Save" class="rz-ripple d-none d-md-inline-flex" Click="UpdateBatch" />
+        </RadzenStack>
+    </RadzenColumn>
+</RadzenRow>
+
 <RadzenTemplateForm Data="@Batch">
     <RadzenRow class="rz-mt-5">
 
@@ -110,15 +120,7 @@
     </RadzenRow>
 </RadzenTemplateForm>
 
-<RadzenRow>
-    <RadzenColumn Size="12" SizeMD="10" SizeLG="6">
-        <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Right"
-            Gap="0.5rem" class="rz-mt-4">
-            <RadzenButton Icon="delete" Text="Delete" Variant="Variant.Outlined" class="rz-ripple d-none d-md-inline-flex" Click="RemoveBatch" Visible="deleteButtonVisible"/>
-            <RadzenButton Icon="save" Text="Save" class="rz-ripple d-none d-md-inline-flex" Click="UpdateBatch"/>
-        </RadzenStack>
-    </RadzenColumn>
-</RadzenRow>
+
 
 <!--mobile screen buttons-->
 <RadzenCard class="d-md-none rz-background-color-base-900 m-0 p-2" Style="position: sticky; bottom: 0; top: 0;">

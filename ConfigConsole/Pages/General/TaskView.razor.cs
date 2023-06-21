@@ -14,7 +14,6 @@ namespace ConfigConsole.Pages.General
         // services
         [Inject] IDataAccessService DataAccessService { get; set; } = default!;
         [Inject] DialogService DialogService {get;set;} = default!;
-        [Inject] TooltipService TooltipService { get; set; } = default!;
         [Inject] NavigationManager Navigation { get; set; } = default!;
         
 
@@ -74,7 +73,7 @@ namespace ConfigConsole.Pages.General
             if (selectedTasks.Count == 0) { return; }
 
             var args = new Dictionary<string, object>() { { "selectedTasks", selectedTasks } };
-            var options = new DialogOptions() { Width = "11rem" };
+            var options = new DialogOptions() { Width = "15rem" };
             await DialogService.OpenAsync<UpdateTaskPriority>("Task Priority", args, options);
             await taskDataGrid.Reload();
         }
@@ -93,6 +92,12 @@ namespace ConfigConsole.Pages.General
             }
             await taskDataGrid.Reload();
             actionButtonDisabled = true;
+        }
+
+        private async Task ResetTask(object _)
+        {
+            var options = new AlertOptions() { OkButtonText = "OK" };
+            await DialogService.Alert("Resetting selected tasks!", "Reset", options);
         }
 
         private void ShowTaskSteps(string? taskId)

@@ -15,20 +15,20 @@
     <HeaderTemplate>
 
         <!--small screen buttons-->
-        <RadzenButton Icon="restart_alt" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary" Size="ButtonSize.Large"/>
+        <RadzenButton Icon="restart_alt" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary" Size="ButtonSize.Large" Click="ResetTask" Disabled="actionButtonDisabled" />
         <RadzenButton Icon="person_add" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary" Click="UpdateTaskAssignment" Size="ButtonSize.Large" Disabled="actionButtonDisabled" />
         <RadzenButton Icon="low_priority" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary" Click="UpdateTaskPriority" Size="ButtonSize.Large" Disabled=" actionButtonDisabled" />
         <RadzenButton Icon="delete" class="rz-ripple rz-my-1 d-none d-md-inline-flex d-xl-none" ButtonStyle="ButtonStyle.Secondary" Click="DeleteTask" Size="ButtonSize.Large" Disabled="actionButtonDisabled" />
 
         <!--large screen buttons-->
         <ExportButton @ref="exportButton" FileName="tasks.csv" Class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Click="ExportTaskData" ButtonText="Export" ButtonSize="ButtonSize.Medium"/>
-        <RadzenButton Text="Reset" Icon="restart_alt" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" />
+        <RadzenButton Text="Reset" Icon="restart_alt" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Click="ResetTask" Disabled="actionButtonDisabled"/>
         <RadzenButton Text="Assign" Icon="person_add" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Click="UpdateTaskAssignment" Disabled="actionButtonDisabled" />
         <RadzenButton Text="Change Priority" Icon="low_priority" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Click="UpdateTaskPriority" Disabled="actionButtonDisabled" />
         <RadzenButton Text="Remove" Icon="delete" class="rz-ripple rz-my-1 d-none d-xl-inline-flex" ButtonStyle="ButtonStyle.Secondary" Click="DeleteTask" Disabled="actionButtonDisabled" />
     </HeaderTemplate>
     <Columns>
-        <RadzenDataGridColumn TItem="TaskModel" Sortable=false Filterable=false Width="50px" TextAlign="TextAlign.Center" Reorderable=false>
+        <RadzenDataGridColumn TItem="TaskModel" Sortable=false Filterable=false Width="80px" TextAlign="TextAlign.Center" Reorderable=false>
             <Template Context="task">
                 <RadzenButton Icon="read_more" Click="@(_ => ShowTaskSteps(task.Id))" ButtonStyle="ButtonStyle.Light"/>
             </Template>
@@ -36,7 +36,7 @@
         <RadzenDataGridColumn TItem="TaskModel" Property="Id" Title="Task Id" SortOrder="SortOrder.Ascending" />
         <RadzenDataGridColumn TItem="TaskModel" Property="TaskType" Title="Task Type" Visible=false />
         <RadzenDataGridColumn TItem="TaskModel" Property="Status" Title="Status" />
-        <RadzenDataGridColumn TItem="TaskModel" Property="ProcessData" Title="Process Data" />
+        <RadzenDataGridColumn TItem="TaskModel" Property="ProcessData" Title="Process Data" Visible=false/>
         <RadzenDataGridColumn TItem="TaskModel" Property="ExternalData" Title="External Data" />
         <RadzenDataGridColumn TItem="TaskModel" Property="FlowStep" Title="Flow Step" Visible=false />
         <RadzenDataGridColumn TItem="TaskModel" Property="Area" Title="Area" Visible=false />
@@ -54,7 +54,7 @@
         <RadzenDataGridColumn TItem="TaskModel" Property="WorkflowId" Title="Workflow" />
         <RadzenDataGridColumn TItem="TaskModel" Property="Priority" Title="Priority" />
         <RadzenDataGridColumn TItem="TaskModel" Property="HumanId" Title="Human Id" />
-        <RadzenDataGridColumn TItem="TaskModel" Property="AgingTimestamp" Title="Aging Time" />
+        <RadzenDataGridColumn TItem="TaskModel" Property="AgingTimestamp" Title="Aging Time" Visible=false/>
         <RadzenDataGridColumn TItem="TaskModel" Property="Reported" Title="Reported" Visible=false />
     </Columns>
 
